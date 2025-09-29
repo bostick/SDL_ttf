@@ -76,7 +76,7 @@ if(EMSCRIPTEN OR VITA OR PSP OR PS2 OR N3DS OR RISCOS)
 endif()
 
 option(CMAKE_POSITION_INDEPENDENT_CODE "Build static libraries with -fPIC" ${PLATFORM_SUPPORTS_SHARED})
-cmake_dependent_option(BUILD_SHARED_LIBS "Build the library as a shared library" ON PLATFORM_SUPPORTS_SHARED OFF)
+cmake_dependent_option(BUILD_SHARED_LIBS "Build the library as a shared library" OFF PLATFORM_SUPPORTS_SHARED OFF)
 
 cmake_dependent_option(SDLTTF_INSTALL "Enable SDL3_ttf install target" ${SDLTTF_ROOTPROJECT} "${sdl3ttf_install_enableable}" OFF)
 cmake_dependent_option(SDLTTF_INSTALL_CPACK "Create binary SDL3_ttf archive using CPack" ${SDLTTF_ROOTPROJECT} "SDLTTF_INSTALL" OFF)
