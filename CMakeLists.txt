@@ -615,3 +615,33 @@ string(TOLOWER "${unavail_str}" unavail_str)
 message(STATUS "SDL3_ttf backends:")
 message(STATUS "- enabled:  ${avail_str}")
 message(STATUS "- disabled: ${unavail_str}")
+
+
+if(SANITIZE)
+    if(${SANITIZE} STREQUAL "ubsan")
+        target_compile_options(${sdl3_ttf_target_name}
+            PRIVATE
+                -fsanitize=undefined -fno-sanitize=vptr -fno-sanitize-recover=undefined
+        )
+        target_link_options(${sdl3_ttf_target_name}
+            PRIVATE
+                -fsanitize=undefined -fno-sanitize=vptr -fno-sanitize-recover=undefined
+        )
+    endif()
+endif()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
